@@ -20,12 +20,19 @@ function App() {
   const start=currentPage*pageSize;
   const end=start+pageSize;
 
+  const handlePrev=()=>{
+    setCurrentPage(currentPage-1)
+  }
+  const handleNext=()=>{
+    setCurrentPage(currentPage+1)
+  }
+
   return (
     <>
       <div>
-        <button>Prev</button>
+        <button onClick={handlePrev}>Prev</button>
         {[...Array(pageSize).keys()].map(i=> <button onClick={()=>setCurrentPage(i)} className="button" key={i}>{i}</button>)}
-        <button>Next</button>
+        <button onClick={handleNext}>Next</button>
         </div>
       {products.slice(start,end).map((product) => (
         <div className="card" key={product.id}>
