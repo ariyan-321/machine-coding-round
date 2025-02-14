@@ -22,7 +22,11 @@ function App() {
 
   return (
     <>
-      <div>{[...Array(pageSize).keys()].map(i=> <button onClick={()=>setCurrentPage(i)} className="button" key={i}>{i}</button>)}</div>
+      <div>
+        <button>Prev</button>
+        {[...Array(pageSize).keys()].map(i=> <button onClick={()=>setCurrentPage(i)} className="button" key={i}>{i}</button>)}
+        <button>Next</button>
+        </div>
       {products.slice(start,end).map((product) => (
         <div className="card" key={product.id}>
           <img src={product.thumbnail} alt="" />
